@@ -1,4 +1,4 @@
-## Online Unsupervised Domain Adaptation for SemanticSegmentation in Ever-Changing Conditions
+## Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
 
 This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. The library has been implemented in PyTorch 
 1.7.1. Some newer versions should work as well.
