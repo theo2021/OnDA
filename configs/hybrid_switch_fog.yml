@@ -1,0 +1,80 @@
+SCHEME:
+  DATASET: fog_cityscapes
+  FILTERS: {}
+  COLUMN: intensity
+  SOURCE: [[0]]
+  DOMAIN_ORDER: [[750], [375], [150], [75], [150], [375], [750], [0]]
+  UNDERSAMPLE: True
+  PATH: '/data/datasets/weather_datasets/weather_cityscapes/'
+  MEAN: [123.675, 116.28 , 103.53]
+  STD: [58.395, 57.12 , 57.375]
+  RESOLUTION: [1024, 512]
+ # ORIGINAL_RES: [2048, 1024]
+METHOD:
+  PRETRAIN:
+    NAME: SEGMENT
+    SEGMENT:
+      LEARNING_RATE: 2.5e-4
+      WEIGHT_DECAY: 0.0005
+      MOMENTUM: 0.9
+      EPOCHS: 0
+      POWER: 0.9
+  ADAPTATION:
+    NAME: PROTO_ONLINE_HYBRIDSWITCH
+    PROTO_ONLINE_HYBRIDSWITCH:
+      EXP_MONITOR_CONST: 0.003
+      DEV_MONITOR_FUNC: 'hamming'
+      LEARNING_RATE_D: 1.0e-5
+      LEARNING_RATE: 1.0e-5
+      WEIGHT_DECAY: 0.0001
+      MOMENTUM: 0.9
+      AVG_MONITOR_SIZE: 200
+      GRAY_AREA: [0.87, 0.91]
+      DEV_THRESH: 0.0002
+      SOFT_TRANS: True
+      BUFF_CE: 1.0
+      BUFF_RCE: 0.0
+      RCE_ALPHA: 0.1
+      RCE_BETA: 1
+      EMA_UPDATE: 0.999
+      EMA_LAMBDA: 0
+      STATIC_LAMBDA: 1
+      DYNAMIC_LAMBDA: 1
+      BN_MOMENTUM: 0.01
+      MA_LAMBDA: 0.9995
+      TAU: 1
+      SKIP_CALC: False
+      DISTANCE_MEASURE: 'mahalanobis'
+      PSEUDO_THRESH: 0.3
+      SOURCE_REPEAT: 1
+      REGULARIZER_WEIGHT: 0.1
+      REGULARIZER: MRKLD
+      FORCE_TARGET_COMPUTE: True
+      KEEP_PROTO: True
+      JS_D: 0
+      LOAD_PROTO: 'snapshots/proto_fog.pickle'
+      # MAX_ITERS:
+      STARTING_PROTO: 'source'
+      POWER: 0
+      EPOCHS: 3
+      BN_POLICY: freeze
+      SKIP_PROTO_EVAL: True
+MODEL:
+  NAME: DeepLabv2-Resnet50
+  MULTI_LEVEL: False
+  CLASSIFIER: 'ProDA'
+  LOAD: 'snapshots/fog_model_6487miou.pth'
+  LR_RATIO: '80:10'
+TRAINING:
+  REPLAY_BUFFER: 1000
+  BUFFER_DYNAMIC: False
+  PERC_FILL_PER_DOMAIN: 0.0
+  RANDOM_SEED: 123
+  BATCH_SIZE: 4
+  SHUFFLE: True
+OTHERS:
+  NUM_WORKERS: 7
+  SNAPSHOT_DIR: snapshots/ouda_hybrid_3epochs
+  GENERATE_SAMPLES_EVERY: 3
+  VALIDATION: all
+  ECE_SKIP: True

@@ -1,0 +1,78 @@
+SCHEME:
+  DATASET: rainy_cityscapes
+  FILTERS: {}
+  COLUMN: intensity
+  SOURCE: [[0]]
+  DOMAIN_ORDER: [[25],[50], [75], [100], [200]]
+  UNDERSAMPLE: True
+  PATH: '/data/datasets/weather_datasets/weather_cityscapes/'
+  MEAN: [123.675, 116.28 , 103.53]
+  STD: [58.395, 57.12 , 57.375]
+  # RESOLUTION: [128, 64]
+  RESOLUTION: [1024, 512]
+ # ORIGINAL_RES: [2048, 1024]
+METHOD:
+  PRETRAIN:
+    NAME: EVALUATION
+    EVALUATION:
+      POWER: 0.9
+      EPOCHS: 0
+      MOMENTUM: 0.9
+      WEIGHT_DECAY: 0.0005
+      LEARNING_RATE: 0.00025
+  ADAPTATION:
+    NAME: PROTO_ONLINE
+    PROTO_ONLINE:
+      EXP_MONITOR_CONST: 0.003
+      DEV_MONITOR_FUNC: 'hamming'
+      LEARNING_RATE_D: 1.0e-5
+      LEARNING_RATE: 1.0e-5
+      WEIGHT_DECAY: 0.0001
+      MOMENTUM: 0.9
+      AVG_MONITOR_SIZE: 200
+      SWITCH_PRIOR_THRESH: 1
+      BUFF_CE: 1.0
+      BUFF_RCE: 0.0
+      RCE_ALPHA: 0.1
+      RCE_BETA: 1
+      EMA_UPDATE: 0.999
+      EMA_LAMBDA: 0
+      STATIC_LAMBDA: 1
+      DYNAMIC_LAMBDA: 0
+      BN_MOMENTUM: 0.01
+      MA_LAMBDA: 0.9995
+      TAU: 1
+      SKIP_CALC: False
+      DISTANCE_MEASURE: 'mahalanobis'
+      PSEUDO_THRESH: 0.3
+      SOURCE_REPEAT: 1
+      REGULARIZER_WEIGHT: 0.1
+      REGULARIZER: MRKLD
+      FORCE_TARGET_COMPUTE: True
+      KEEP_PROTO: False
+      JS_D: 0
+      # MAX_ITERS:
+      STARTING_PROTO: 'source'
+      POWER: 0
+      EPOCHS: 0
+      BN_POLICY: freeze
+      SKIP_PROTO_EVAL: False
+MODEL:
+  NAME: DeepLabv2-Resnet50
+  MULTI_LEVEL: True
+  CLASSIFIER: 'ProDA'
+  LOAD: 'pretrained/pretrained_resnet50_miou645.pth'
+  LR_RATIO: '1:10'
+TRAINING:
+  REPLAY_BUFFER: 1.0
+  BUFFER_DYNAMIC: False
+  PERC_FILL_PER_DOMAIN: 0.0
+  RANDOM_SEED: 123
+  BATCH_SIZE: 4
+  SHUFFLE: True
+OTHERS:
+  NUM_WORKERS: 7
+  SNAPSHOT_DIR: snapshots/ouda_advent_model
+  GENERATE_SAMPLES_EVERY: 4
+  VALIDATION: all
+  ECE_SKIP: True
