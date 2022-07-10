@@ -166,4 +166,3 @@ dependencies:
     - tqdm==4.64.0
     - urllib3==1.26.9
     - wandb==0.12.17
-prefix: /home/theo/anaconda3/envs/ouda

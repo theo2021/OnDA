@@ -3,18 +3,24 @@
 This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. The library has been implemented in PyTorch 
 1.7.1. Some newer versions should work as well.
 
+![Method Cover](assets/images/cover.png)
+
 **All assets to run a simple inference can be found** [here](https://drive.google.com/drive/folders/14X3XUjvnl0gwML4k7FI1yB9u9-oQmo-x?usp=sharing)
 
 Moreover, recording and tracking for the run is happening through [wandb](https://wandb.com) if you haven't an account is necessary to track the adaptation.
 
 ## Repositories
 
+We would advise you to use conda or miniconda to run the package. 
 Run the following command to install the necessary modules:
 
 ```
-pip install -r requirements.txt
+conda env create -f environment.yml
 ```
-Take note the `requirements.txt` contains absolute versions, newer versions might also be compatible with the code.
+<!-- Take note the `requirements.txt` contains absolute versions, newer versions might also be compatible with the code. -->
+After creating the environment, load it using  `conda activate ouda`.
+
+You would then need to login to wandb to record the experiments simply type `wandb login`.
 
 ## Downloading the dataset
 
