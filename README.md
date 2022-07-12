@@ -1,7 +1,8 @@
 ## Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
 
-This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. The library has been implemented in PyTorch 
-1.7.1. Some newer versions should work as well.
+Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", ECCV 2022.
+This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. 
+The library has been implemented in PyTorch 1.7.1. Some newer versions should work as well.
 
 ![Method Cover](assets/images/cover.png)
 
@@ -51,6 +52,22 @@ The Confidence switch (and Soft) is here: `framework/domain_adaptation/methods/p
 The Confidence Derivative Switch is here: `framework/domain_adaptation/methods/prototypes_vswitch.py`
 Lastly the code for the hybrid switch can be found here: `framework/domain_adaptation/methods/prototypes_hybrid_switch.py`
 Advent is the implementation here: `framework/domain_adaptation/methods/advent_da.py`
+
+## Citation
+
+If you find this repo useful for your work, please cite our paper:
+
+```shell
+@inproceedings{Panagiotakopoulos_ECCV_2022,
+  title     = {Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions},
+  author    = {Panagiotakopoulos, Theodoros and
+               Dovesi, Pier Luigi and
+               H{\"a}renstam-Nielsen, Linus and
+               Poggi, Matteo},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year = {2022}
+}
+```   
 
 ## Regards
 
