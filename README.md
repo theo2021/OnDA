@@ -1,4 +1,5 @@
-## Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
+:ocean: OnDa
+## Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
 
 Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", ECCV 2022.
 This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. 
