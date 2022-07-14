@@ -1,4 +1,4 @@
-## Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
+## <span style="color:#00004c">On</span>line Unsupervised <span style="color:#00004c">D</span>omain <span style="color:#00004c">A</span>daptation for Semantic Segmentation in Ever-Changing Conditions
 
 Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", ECCV 2022.
 This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. 
