@@ -11,6 +11,22 @@ The library has been implemented in PyTorch 1.7.1. Some newer versions should wo
 
 Moreover, recording and tracking for the run is happening through [wandb](https://wandb.com) if you haven't an account is necessary to track the adaptation.
 
+## Citation
+
+If you find this repo useful for your work, please cite our paper:
+
+```shell
+@inproceedings{Panagiotakopoulos_ECCV_2022,
+  title     = {Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions},
+  author    = {Panagiotakopoulos, Theodoros and
+               Dovesi, Pier Luigi and
+               H{\"a}renstam-Nielsen, Linus and
+               Poggi, Matteo},
+  booktitle = {European Conference on Computer Vision (ECCV)},
+  year = {2022}
+}
+``` 
+
 ## Repositories
 
 We would advise you to use conda or miniconda to run the package. 
@@ -52,23 +68,7 @@ While the switching approach is written here: `framework/domain_adaptation/metho
 The Confidence switch (and Soft) is here: `framework/domain_adaptation/methods/prototypes_hswitch.py`
 The Confidence Derivative Switch is here: `framework/domain_adaptation/methods/prototypes_vswitch.py`
 Lastly the code for the hybrid switch can be found here: `framework/domain_adaptation/methods/prototypes_hybrid_switch.py`
-Advent is the implementation here: `framework/domain_adaptation/methods/advent_da.py`
-
-## Citation
-
-If you find this repo useful for your work, please cite our paper:
-
-```shell
-@inproceedings{Panagiotakopoulos_ECCV_2022,
-  title     = {Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions},
-  author    = {Panagiotakopoulos, Theodoros and
-               Dovesi, Pier Luigi and
-               H{\"a}renstam-Nielsen, Linus and
-               Poggi, Matteo},
-  booktitle = {European Conference on Computer Vision (ECCV)},
-  year = {2022}
-}
-```   
+Advent is the implementation here: `framework/domain_adaptation/methods/advent_da.py`  
 
 ## Regards
 
