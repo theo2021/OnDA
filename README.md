@@ -1,10 +1,4 @@
-<div style="text-align: center;">
-<div style="display: block;">
-<img src="assets/images/wave.png" width="65">
-
-<span style="font-size:20px;">OnDA</span>
-</div>
-</div>
+# :ocean: OnDa
 
 ## Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
 
@@ -70,7 +64,7 @@ To run first one should initialise wandb `wandb login` and then simply run `pyth
 
 The run performs evaluation accross domains from the start and for each pass through the data. We demonstrated how to run the hybrid switch but by configuring or selecting other configuration files one can use different switches or approaches. By default the approach will create folders to save predictions.
 
-![clip](assets/images/clip.gif)
+![clip](assets/images/clip-min.gif)
 
 ## Code library
 
