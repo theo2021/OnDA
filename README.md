@@ -5,6 +5,8 @@ Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation
 This is the code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. 
 The library has been implemented in PyTorch 1.7.1. Some newer versions should work as well.
 
+OnDA (literally "wave" in italian) allows for adapting across a flow of domains, and yet avoiding catastrophic forgetting.
+
 ![Method Cover](assets/images/cover-min.png)
 
 **All assets to run a simple inference can be found** [here](https://drive.google.com/drive/folders/14X3XUjvnl0gwML4k7FI1yB9u9-oQmo-x?usp=sharing)
