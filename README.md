@@ -1,4 +1,11 @@
-# :ocean: OnDa
+<div style="text-align: center;">
+<div style="display: block;">
+<img src="assets/images/wave.png" width="65">
+
+<span style="font-size:20px;">OnDA</span>
+</div>
+</div>
+
 ## Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
 
 Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", ECCV 2022.
@@ -45,7 +52,7 @@ You would then need to login to wandb to record the experiments simply type `wan
 
 ## Creating the rainy dataset
 First download the Cityscapes dataset from [here](https://www.cityscapes-dataset.com/).
-To add rain to the cityscapes dataset you need to follow the steps as shown [here](https://team.inria.fr/rits/computer-vision/weather-augment/). The autors provide the rain mask for each image. With their dev-kit one can create the rainy images. Moreover, for the validation it is possible to create them as described [here](https://github.com/cv-rits/rain-rendering/issues/3). We are in talks with the authors to make the creation of the dataset easier.
+To add rain to the cityscapes dataset you need to follow the steps as shown [here](https://team.inria.fr/rits/computer-vision/weather-augment/). The autors provide the rain mask for each image. With their dev-kit one can create the rainy images.
 
 ## Download the pretrained source model and prototypes
 
@@ -62,6 +69,8 @@ We recommend using a powerful graphics card with at least 16GB of VRAM. To run t
 To run first one should initialise wandb `wandb login` and then simply run `python train_ouda.py --cfg=configs/hybrid_switch.yml`
 
 The run performs evaluation accross domains from the start and for each pass through the data. We demonstrated how to run the hybrid switch but by configuring or selecting other configuration files one can use different switches or approaches. By default the approach will create folders to save predictions.
+
+![clip](assets/images/clip.gif)
 
 ## Code library
 
