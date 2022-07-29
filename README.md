@@ -1,17 +1,19 @@
 # :ocean: OnDa
 
 ## Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
+[Theodoros Panagiotakopoulos](https://github.com/theo2021), [Pier Luigi Dovesi](https://github.com/pierluigidovesi), [Linus Härenstam-Nielsen](https://github.com/Linusnie), [Matteo Poggi](https://github.com/mattpoggi)
 
-Source code for "Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions", ECCV 2022.
+Source code for [Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions](https://arxiv.org/abs/2207.10667), ECCV 2022.  
+Check out our [project page](https://theo2021.github.io/onda-web/) and [video](https://youtu.be/igtmgafiurY?t=634).
 
-OnDA (literally "wave" in italian) allows for adapting across a flow of domains, while avoiding catastrophic forgetting.
+OnDA (literally "wave" in Italian) allows for adapting across a flow of domains, while avoiding catastrophic forgetting.
 
 This code has been implemented to perform training and evaluation of UDA approaches in continuous scenarios. 
 The library has been implemented in PyTorch 1.7.1. Some newer versions should work as well.
 
 ![Method Cover](assets/images/cover-min.png)
 
-**All assets to run a simple inference can be found** [here](https://drive.google.com/drive/folders/14X3XUjvnl0gwML4k7FI1yB9u9-oQmo-x?usp=sharing)
+**All assets to run a simple inference can be found** [here](https://drive.google.com/drive/folders/14X3XUjvnl0gwML4k7FI1yB9u9-oQmo-x?usp=sharing).
 
 Moreover, recording and tracking for the run is happening through [wandb](https://wandb.com) if you haven't an account is necessary to track the adaptation.
 
