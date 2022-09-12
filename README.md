@@ -1,10 +1,15 @@
 # :ocean: OnDa
 
 ## Online Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions
-[Theodoros Panagiotakopoulos](https://github.com/theo2021), [Pier Luigi Dovesi](https://github.com/pierluigidovesi), [Linus Härenstam-Nielsen](https://github.com/Linusnie), [Matteo Poggi](https://github.com/mattpoggi)
+[Theodoros Panagiotakopoulos](https://github.com/theo2021)<sup>1*</sup> [Pier Luigi Dovesi](https://github.com/pierluigidovesi)<sup>2</sup> [Linus Härenstam-Nielsen](https://github.com/Linusnie)<sup>3,4*</sup> [Matteo Poggi](https://github.com/mattpoggi)<sup>5</sup>
 
-Source code for [Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions](https://arxiv.org/abs/2207.10667), ECCV 2022.  
-Check out our [project page](https://theo2021.github.io/onda-web/) and [video](https://youtu.be/igtmgafiurY?t=634).
+<sup>1</sup> King <sup>2</sup> Univrses <sup>3</sup> Kudan <sup>4</sup> Technical University of Munich <sup>5</sup> University of Bologna
+
+<sup>*</sup> Part of the work carried out while at [Univrses](https://univrses.com/).
+
+:scroll: Source code for [**Online Unsupervised Domain Adaptation for Semantic Segmentation in Ever-Changing Conditions**](https://arxiv.org/abs/2207.10667), **ECCV 2022**.
+
+:film_projector: Check out our [**project page**](https://theo2021.github.io/onda-web/) and [**video**](https://youtu.be/igtmgafiurY?t=634).
 
 OnDA (literally "wave" in Italian) allows for adapting across a flow of domains, while avoiding catastrophic forgetting.
 
