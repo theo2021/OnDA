@@ -55,6 +55,8 @@ You would then need to login to wandb to record the experiments simply type `wan
 First download the Cityscapes dataset from [here](https://www.cityscapes-dataset.com/).
 To add rain to the cityscapes dataset you need to follow the steps as shown [here](https://team.inria.fr/rits/computer-vision/weather-augment/). The autors provide the rain mask for each image. With their dev-kit one can create the rainy images.
 
+If you have trouble creating the rainy or foggy dataset, please contact us in [domain-adaptation-group@googlegroups.com](mailto:domain-adaptation-group@googlegroups.com?subject=[Dataset]%20Requesting%20access%20to%20rainy%20db) and we can provide you the dataset.
+
 ## Download the pretrained source model and prototypes
 
 Download the files `precomputed_prototypes.pickle` , `pretrained_resnet50_miou645.pth` and save them into a folder named `pretrained`
@@ -86,7 +88,14 @@ Advent is the implementation here: `framework/domain_adaptation/methods/advent_d
 ## Regards
 
 Don't hesitate to contact us if there are questions about the code or about the different options in the cfg file.
+
+## New work
+
+More adaptation? Check our newer work of [HAMLET: To Adapt or Not to Adapt? Real-Time Adaptation for Semantic Segmentation](https://github.com/MarcBotet/hamlet).
+
 Thank you!!
+
+
 
 
 
