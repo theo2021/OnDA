@@ -1,5 +1,6 @@
 from ..model.deeplabv2 import get_deeplab_v2
 from ..model.deeplabv2_proda import Deeplab
+from ..model.SegFormer import SegFormerMitB1Model
 import torch
 import types
 
@@ -8,6 +9,7 @@ MODEL_NAMES = [
     "DeepLabv2-Resnet101",
     "DeepLabv2-Resnet101-ProDA",
     "DeepLabv2-Resnet50-GN",
+    "SegFormerMitB1Model"
 ]
 
 
@@ -38,6 +40,8 @@ def get_model(cfg, n_classes):
             classifier=cfg.MODEL.CLASSIFIER,
             norm_module=norm_module,
         )
+    elif cfg.MODEL.NAME == "SegFormerMitB1Model":
+        model = SegFormerMitB1Model(num_classes=n_classes)
     if cfg.MODEL.LOAD is not None:
         if not cfg.MODEL.LOAD == "None":
             saved_state_dict = torch.load(cfg.MODEL.LOAD)
@@ -52,6 +56,15 @@ def get_model(cfg, n_classes):
                         ind = 1
                     if not (i_parts[ind] == "layer5" or i_parts[ind] == "fc"):
                         new_params[".".join(i_parts[ind:])] = saved_state_dict[i]
+                model.load_state_dict(new_params)
+            elif 'mitb1' in cfg.MODEL.LOAD.lower():
+                saved_state_dict = saved_state_dict if 'state_dict' not in saved_state_dict.keys() else saved_state_dict['state_dict']
+                new_params = model.state_dict().copy()
+                for i in saved_state_dict:
+                    i_parts = i.split(".")
+                    if "decode_head" == i_parts[0] and ("linear_fuse_m1" == i_parts[1] or "linear_pred_m1" == i_parts[1]):
+                        continue
+                    new_params[i] = saved_state_dict[i]
                 model.load_state_dict(new_params)
             else:
                 model.load_state_dict(saved_state_dict)

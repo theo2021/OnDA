@@ -5,21 +5,14 @@ SCHEME:
   SOURCE: [[0]]
   DOMAIN_ORDER: [[25],[50], [75], [100], [200], [100], [75], [50], [25], [0]]
   UNDERSAMPLE: True
+  # PATH: '/home/theo/data/'
   PATH: '/data/datasets/weather_datasets/weather_cityscapes/'
   MEAN: [123.675, 116.28 , 103.53]
   STD: [58.395, 57.12 , 57.375]
-  RESOLUTION: [128, 64]
-  # RESOLUTION: [1024, 512]
+  # RESOLUTION: [128, 64]
+  RESOLUTION: [1024, 512]
  # ORIGINAL_RES: [2048, 1024]
 METHOD:
-  PRETRAIN:
-    NAME: SEGMENT
-    SEGMENT:
-      LEARNING_RATE: 2.5e-4
-      WEIGHT_DECAY: 0.0005
-      MOMENTUM: 0.9
-      EPOCHS: 0
-      POWER: 0.9
   ADAPTATION:
     NAME: PROTO_ONLINE_HYBRIDSWITCH
     PROTO_ONLINE_HYBRIDSWITCH:
@@ -27,7 +20,7 @@ METHOD:
       DEV_MONITOR_FUNC: 'hamming'
       LEARNING_RATE_D: 1.0e-5
       LEARNING_RATE: 1.0e-5
-      WEIGHT_DECAY: 0.0001
+      WEIGHT_DECAY: 0.001
       MOMENTUM: 0.9
       AVG_MONITOR_SIZE: 200
       GRAY_AREA: [0.83, 0.9]
@@ -53,7 +46,7 @@ METHOD:
       FORCE_TARGET_COMPUTE: True
       KEEP_PROTO: True
       JS_D: 0
-      LOAD_PROTO: 'pretrained/precomputed_prototypes.pickle'
+      # LOAD_PROTO: 'pretrained/proto_laptop_segformer.pickle'
       # MAX_ITERS:
       STARTING_PROTO: 'source'
       POWER: 0
@@ -61,11 +54,11 @@ METHOD:
       BN_POLICY: freeze
       SKIP_PROTO_EVAL: True
 MODEL:
-  NAME: DeepLabv2-Resnet50
+  NAME: SegFormerMitB1Model
   MULTI_LEVEL: False
   CLASSIFIER: 'ProDA'
-  LOAD: 'pretrained/pretrained_resnet50_miou645.pth'
-  LR_RATIO: '80:10'
+  LOAD: 'pretrained/mitb1_uda.pth'
+  LR_RATIO: '1:1'
 TRAINING:
   REPLAY_BUFFER: 1000
   BUFFER_DYNAMIC: False

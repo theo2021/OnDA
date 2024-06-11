@@ -10,6 +10,7 @@ from torch.functional import F
 from torch.backends import cudnn
 import wandb
 from framework.utils.func import loss_calc, lr_poly, fast_hist, per_class_iu
+from framework.utils.monitoring import PytorchSpeedMeasure
 from framework.utils.loss import rce, js_divergance
 from framework.utils.monitoring import Monitor, ECE
 from framework.domain_adaptation.evaluate import segment_sample
@@ -20,9 +21,9 @@ from framework.domain_adaptation.methods.adaptation_model import (
 )
 from framework.utils.ewc import ewc_loss
 
-cudnn.deterministic = True
+cudnn.deterministic = False
 cudnn.enabled = True
-cudnn.benchmark = False
+cudnn.benchmark = True
 # torch.set_deterministic(True)
 
 
@@ -95,6 +96,7 @@ class online_proDA(da_model):
         if cfg_spec.LOAD_MODEL != {} and cfg_spec.LOAD_MODEL:
             super().load_model(cfg_spec.LOAD_MODEL)
         self.dynamic_update_counter = 0
+        self.speed_monitor = PytorchSpeedMeasure()
 
     def update_dynamic(self):
         """Update the dynamic model"""
@@ -503,7 +505,10 @@ class online_proDA(da_model):
             except StopIteration:
                 targetloader_iter = iter(targetloader)
                 target_sample = next(targetloader_iter)
+            self.speed_monitor.reset_timer()
             log = self.step(source_samples, target_sample)
+            self.speed_monitor.add('step_loop_time')
+            log.update(self.speed_monitor.avg())
             self.evaluate_update_dynamic()
             self.update_ema()
             log["Total buffer updates"] = self.buffer_update(

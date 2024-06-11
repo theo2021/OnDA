@@ -25,9 +25,9 @@ warnings.filterwarnings("ignore", message="numpy.dtype size changed")
 warnings.filterwarnings("ignore")
 
 os.environ["CUBLAS_WORKSPACE_CONFIG"] = ":4096:2"
-cudnn.benchmark = False
+cudnn.benchmark = True
 cudnn.enabled = True
-cudnn.deterministic = True
+cudnn.deterministic = False
 # torch.set_deterministic(True)
 getf = lambda x: next(iter(x))
 

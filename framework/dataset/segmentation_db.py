@@ -88,12 +88,12 @@ class Segmentation_db(Dataset):
         if resized:
             return _load_img(
                 label_path,
-                [int(x / 8 + 1) for x in self.labels_size],
+                [int(x / 4) for x in self.labels_size],
                 Image.NEAREST,
                 rgb=self.map.rgb,
             )
         return _load_img(label_path, self.labels_size, Image.NEAREST, rgb=self.map.rgb)
 
     def preprocess(self, image):
-        image = image[:, :, ::-1]  # change to BGR for Advent
+        # image = image[:, :, ::-1]  # change to BGR for Advent
         return self.transforms(image.copy())

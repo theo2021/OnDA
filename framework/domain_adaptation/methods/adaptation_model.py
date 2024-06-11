@@ -81,9 +81,9 @@ class da_model:
         self.device = cfg.OTHERS.DEVICE
         input_size_source = cfg.SCHEME.RESOLUTION
         learning_rate = cfg_spec.LEARNING_RATE
-        cudnn.deterministic = True
+        cudnn.deterministic = False
         cudnn.enabled = True
-        cudnn.benchmark = False
+        cudnn.benchmark = True
         # torch.set_deterministic(True)
         self.optimizer = optim.SGD(
             model.optim_parameters(learning_rate),
@@ -91,6 +91,9 @@ class da_model:
             momentum=cfg_spec.MOMENTUM,
             weight_decay=cfg_spec.WEIGHT_DECAY,
         )
+        self.optimizer = optim.Adam(model.optim_parameters(learning_rate),
+                                    lr=learning_rate, betas=(0.9, 0.999), weight_decay=0.01
+                                    )
         self.interp = nn.Upsample(
             size=(input_size_source[1], input_size_source[0]),
             mode="bilinear",

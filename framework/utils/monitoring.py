@@ -143,12 +143,13 @@ class PytorchSpeedMeasure(Monitor):
         self.switch_off = not on
         self.start = torch.cuda.Event(enable_timing=True)
         self.stop = torch.cuda.Event(enable_timing=True)
-        super().__init__(limit=limit)
+        super().__init__(limit=limit, dev_func="mean")
         self.reset_timer()
 
     def reset_timer(self):
         if not self.switch_off:
             self.start.record()
+            self.stop.record()
 
     def add(self, text):
         if self.switch_off:
